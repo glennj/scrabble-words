@@ -1,0 +1,73 @@
+{
+  "name": "scrabble-lookup",
+  "version": "0.0.2",
+  "description": "Given tiles, find words",
+  "main": "server.js",
+  "scripts": {
+    "__watch": "jest --no-cache --watch ./*",
+    "_watch": "esw -w ./scrabble*.es6 & ./node_modules/.bin/babel -x .es6 --watch --out-dir .",
+    "lint": "eslint ./*.es6",
+    "compile": "eslint ./*.es6 && ./node_modules/.bin/babel --out-dir . ./*.es6"
+  },
+  "author": "Glenn Jackman",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-watch": "^4.0.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": [
+            {
+              "node": "current"
+            }
+          ]
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "babel-plugin-transform-builtin-extend",
+        {
+          "globals": [
+            "Error"
+          ]
+        }
+      ],
+      [
+        "transform-regenerator"
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "airbnb-base",
+    "rules": {
+      "import/no-unresolved": "off",
+      "import/extensions": "off",
+      "import/prefer-default-export": "off",
+      "import/no-default-export": "off"
+    }
+  }
+}
